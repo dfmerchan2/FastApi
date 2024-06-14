@@ -21,10 +21,10 @@ jobs:
         run: pip install poetry
 
       - name: Instalar dependencias
-        run: poetry install  # Instala dependencias definidas en pyproject.toml
+        run: poetry install
 
-      - name: Instalar librerías adicionales (opcional)
-        run: pip install sqlalchemy jwt  # Instala librerías faltantes
+      - name: Instalar librerías adicionales
+        run: poetry lock --no-update
 
       - name: Ejecutar Pruebas Unitarias
         env:
