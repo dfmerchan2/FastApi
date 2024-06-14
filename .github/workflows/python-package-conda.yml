@@ -1,0 +1,36 @@
+name: CI/CD para FastAPI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.10
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Linter
+        run: mypy .
+
+      - name: Pruebas unitarias
+        run: pytest
+
+      - name: Despliegue a producción (opcional)
+        if: github.event.pull_request.merged == true
+        run: |
+          # Insertar comandos de despliegue aquí
+          # Ejemplo:
+          git push origin gh-pages
