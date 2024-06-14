@@ -23,6 +23,9 @@ jobs:
       - name: Instalar dependencias
         run: poetry install
 
+      - name: Instalar pytest
+        run: pip install pytest
+
       - name: Ejecutar Pruebas Unitarias
         env:
           ENV: TESTING
