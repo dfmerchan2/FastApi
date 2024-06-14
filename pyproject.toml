@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "module1bookstore"
+version = "0.1.0"
+description = "Module 1 - Software Engineering in Test Global Mentoring Program"
+authors = ["Maria Hernandez"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^8.2.0"
+SQLAlchemy = "^2.0.30"
+fastapi = "^0.111.0"
+uvicorn = "^0.29.0"
+databases = "^0.9.0"
+pyjwt = "^2.8.0"
+sqlalchemy-mock = "^1.0.9"
+reactpy = "^1.0.2"
+
+[tool.pytest.ini_options]
+python_files = ['*_test.py', '*_test_*.py']
+markers = [
+    "unit: run test for services methods with mocks')",
+    "api: run test for apis methods with mocks",
+    "test: run test without mocks",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

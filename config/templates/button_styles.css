@@ -1,0 +1,32 @@
+h3 {
+  color: black;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 35px;
+}
+
+nav {
+    background-color: #1E2041;
+    color: white;
+    font-family: cursive;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+}
+nav ul {
+    /* Make the markers disappear */
+    list-style-type: none;
+}
+nav ul li {
+    /* Puts the elements in a single line */
+    display: inline-flex;
+    margin: 0.3em 1em;
+}
+
+
+p {
+  color: black;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
