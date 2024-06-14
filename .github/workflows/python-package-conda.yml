@@ -27,7 +27,4 @@ jobs:
         run: pip install pytest
 
       - name: Ejecutar Pruebas Unitarias
-        env:
-          ENV: TESTING
-          MODE_TEST: Unit
-        run: pytest -m unit
+        run: ENV=TESTING MODE_TEST=Unit pytest -m unit
