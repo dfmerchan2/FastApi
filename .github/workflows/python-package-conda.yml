@@ -12,10 +12,10 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Configurar Python 3.9.13
+      - name: Configurar Python 3.9
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9.13'
+          python-version: '3.9'
 
       - name: Instalar Poetry
         run: pip install poetry
@@ -25,6 +25,9 @@ jobs:
 
       - name: Instalar pytest
         run: pip install pytest
+
+      - name: Instalar fastapi
+        run: pip install fastapi
 
       - name: Ejecutar Pruebas Unitarias
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
