@@ -22,8 +22,5 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Install pytest (if not using Poetry script)
-        run: poetry install pytest  # Optional
-
       - name: Run Tests
         run: pytest -m unit
