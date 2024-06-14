@@ -15,22 +15,19 @@ jobs:
       - name: Configurar Python 3.9
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9'
+          python-version: '3.9'  # Puedes mantener la versión 3.9
 
       - name: Instalar Poetry
         run: pip install poetry
 
       - name: Instalar dependencias
-        run: poetry install
+        run: poetry install  # Instala dependencias definidas en pyproject.toml
 
-      - name: Instalar pytest
-        run: pip install pytest
-
-      - name: Instalar fastapi
-        run: pip install fastapi
-
-      - name: Instalar sqlalchemy
-        run: pip install sqlalchemy jwt
+      - name: Instalar librerías adicionales (opcional)
+        run: pip install sqlalchemy jwt  # Instala librerías faltantes
 
       - name: Ejecutar Pruebas Unitarias
-        run: ENV=TESTING MODE_TEST=Unit pytest -m unit
+        env:
+          ENV: TESTING
+          MODE_TEST: Unit
+        run: pytest -m unit
