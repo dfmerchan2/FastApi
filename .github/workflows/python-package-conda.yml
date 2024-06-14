@@ -25,9 +25,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install poetry uvicorn
-
-      - name: Run Apis
-        run: uvicorn main:app --reload --port 5001 
         
       - name: Pruebas unitarias
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
