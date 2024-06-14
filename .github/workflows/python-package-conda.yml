@@ -27,4 +27,4 @@ jobs:
         run: pip install poetry uvicorn
         
       - name: Pruebas unitarias
-        run: ENV=TESTING MODE_TEST=Unit pytest -m unit
+        run: pytest -m unit
