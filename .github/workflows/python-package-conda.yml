@@ -29,5 +29,8 @@ jobs:
       - name: Instalar fastapi
         run: pip install fastapi
 
+      - name: Instalar sqlalchemy
+        run: pip install sqlalchemy jwt
+
       - name: Ejecutar Pruebas Unitarias
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
