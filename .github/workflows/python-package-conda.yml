@@ -1,5 +1,3 @@
-name: CI/CD para FastAPI con Poetry (Python 3.9.13)
-
 on:
   push:
     branches: [ main ]
@@ -15,19 +13,17 @@ jobs:
       - name: Configurar Python 3.9
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9'  # Puedes mantener la versión 3.9
+          python-version: '3.9'
 
-      - name: Instalar Poetry
+      - name: Install Poetry
         run: pip install poetry
 
-      - name: Instalar dependencias
+      # Assuming project is in root directory (adjust if needed)
+      - name: Install dependencies
         run: poetry install
 
-      - name: Instalar librerías adicionales
-        run: poetry lock --no-update
+      - name: Install pytest (if not using Poetry script)
+        run: poetry install pytest  # Optional
 
-      - name: Ejecutar Pruebas Unitarias
-        env:
-          ENV: TESTING
-          MODE_TEST: Unit
+      - name: Run Tests
         run: pytest -m unit
