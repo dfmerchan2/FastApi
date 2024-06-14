@@ -15,7 +15,7 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9'
+          python-version: '3.9.13'
 
       - name: Install poetry
         run: pip install poetry
@@ -27,4 +27,4 @@ jobs:
         run: pip install poetry uvicorn
         
       - name: Pruebas unitarias
-        run: pytest -m unit
+        run: ENV=TESTING MODE_TEST=Unit pytest -m unit
