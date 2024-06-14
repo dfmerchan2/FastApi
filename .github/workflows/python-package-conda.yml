@@ -1,4 +1,4 @@
-name: Instalar Python 3.9
+name: CI/CD para FastAPI con Poetry (Python 3.9.13)
 
 on:
   push:
@@ -12,19 +12,22 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Configurar Python
+      - name: Configurar Python 3.9.13
         uses: actions/setup-python@v3
         with:
           python-version: '3.9.13'
 
-      - name: Install poetry
+      - name: Instalar Poetry
         run: pip install poetry
 
-      - name: Install dependencies
-        run: poetry install  
+      - name: Instalar dependencias
+        run: poetry install
 
-      - name: Install dependencies
-        run: pip install poetry uvicorn
-        
-      - name: Pruebas unitarias
-        run: ENV=TESTING MODE_TEST=Unit pytest -m unit
+      - name: Instalar Uvicorn
+        run: poetry install uvicorn  # Instala uvicorn con Poetry
+
+      - name: Ejecutar Pruebas Unitarias
+        env:
+          ENV: TESTING
+          MODE_TEST: Unit
+        run: pytest -m unit
