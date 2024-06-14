@@ -23,9 +23,6 @@ jobs:
       - name: Instalar dependencias
         run: poetry install
 
-      - name: Instalar Uvicorn
-        run: poetry install uvicorn  # Instala uvicorn con Poetry
-
       - name: Ejecutar Pruebas Unitarias
         env:
           ENV: TESTING
