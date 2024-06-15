@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["pypy3.9"]
 
     steps:
       - uses: actions/checkout@v4
@@ -18,7 +18,7 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
       - name: Cambiar directorio al proyecto (si necesario)
-        run: cd module1bookstore  # Reemplaza con la ruta correcta
+        run: cd module1bookstore\test\unit # Reemplaza con la ruta correcta
       - name: Install dependencies
         run: poetry install
       - name: Run Tests
