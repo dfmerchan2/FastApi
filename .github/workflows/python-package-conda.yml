@@ -33,4 +33,4 @@ jobs:
         run: poetry install
 
       - name: Run Tests
-        run: pytest -m unit
+        run: ENV=TESTING MODE_TEST=Unit pytest -m unit
