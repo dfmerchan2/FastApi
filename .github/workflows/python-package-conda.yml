@@ -7,19 +7,28 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9"]
+        python-version: ["pypy3.9"]  # Adjust as needed
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python (dynamic version)
         uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+
       - name: Install Poetry
         run: pip install poetry
-      - name: Cambiar directorio al proyecto (si necesario)
-        run: cd module1bookstore\test\unit # Reemplaza con la ruta correcta
+
+      - name: Change directory to project (if needed)
+        # Adjust the path based on your project structure
+        run: cd module1bookstore/test/unit  # Use forward slashes for Unix systems
+
       - name: Install dependencies
         run: poetry install
+
       - name: Run Tests
         run: pytest -m unit
