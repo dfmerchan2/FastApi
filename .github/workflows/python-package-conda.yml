@@ -15,22 +15,25 @@ jobs:
       - name: Set up Python (dynamic version)
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python-version }}
 
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 
-      - name: Crear Virtual env
+      - name: Crear entorno virtual
         run: python3.9 -m venv ./.venv
-        
-      - name: Activar Virtual env
+
+      - name: Activar entorno virtual
         run: source ./.venv/bin/activate
-        
+
+      - name: Instalar dependencias (dentro del entorno virtual)
+        run: pip install pytest
+
       - name: Install Poetry
         run: pip install poetry
 
       - name: Install dependencies
         run: poetry install
 
-      - name: Run Tests
+      - name: Run Tests (optional environment variables)
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
