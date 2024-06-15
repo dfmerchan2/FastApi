@@ -29,11 +29,5 @@ jobs:
       - name: Instalar dependencias (dentro del entorno virtual)
         run: pip install pytest
 
-      - name: Install Poetry
-        run: pip install poetry
-
-      - name: Install dependencies
-        run: poetry install
-
       - name: Run Tests (optional environment variables)
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
