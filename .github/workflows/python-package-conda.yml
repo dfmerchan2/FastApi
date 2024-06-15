@@ -11,19 +11,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python (dynamic version)
         uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
-
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-
       - name: Install Poetry
         run: pip install poetry
-
+      - name: Cambiar directorio al proyecto (si necesario)
+        run: cd module1bookstore  # Reemplaza con la ruta correcta
       - name: Install dependencies
         run: poetry install
-
       - name: Run Tests
         run: pytest -m unit
