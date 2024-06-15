@@ -23,10 +23,6 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
 
-      - name: Change directory to project (if needed)
-        # Adjust the path based on your project structure
-        run: cd module1bookstore/test/unit  # Use forward slashes for Unix systems
-
       - name: Install dependencies
         run: poetry install
 
