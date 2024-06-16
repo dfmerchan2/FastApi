@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9"]
+        python-version: ["pypy3.11"]
 
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +31,9 @@ jobs:
 
       - name: Solucion error
         run: poetry lock --no-update
+
+      - name: Solucion error
+        run: python -c "import orjson"
         
       - name: Instalar dependencias
         run: poetry install
