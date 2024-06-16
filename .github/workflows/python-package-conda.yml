@@ -36,7 +36,7 @@ jobs:
         run: ls -l
         
       - name: Instalar dependencias
-        run: poetry install /module1bookstore/module1bookstore/pyproject.toml
+        run: poetry install
 
       - name: Run Tests (optional environment variables)
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
