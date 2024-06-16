@@ -22,7 +22,12 @@ jobs:
      
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-          
+
+      - name: Crear entorno virtual
+        run: python${{ matrix.python-version }} -m venv ./.venv
+
+      - name: Activar entorno virtual
+        run: source ./.venv/bin/activate
       - name: Instalar poetry
         run: pip install poetry
 
