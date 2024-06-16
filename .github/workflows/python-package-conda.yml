@@ -39,4 +39,4 @@ jobs:
         run: poetry install --no-interaction --no-ansi --no-cache
 
       - name: Run Tests (optional environment variables)
-        run: pytest -v
+        run: poetry -v
