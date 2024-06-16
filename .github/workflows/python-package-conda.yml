@@ -31,6 +31,9 @@ jobs:
 
       - name: Print current directory
         run: pwd
+
+      - name: Print current directory
+        run: ls -l
         
       - name: Instalar dependencias
         run: poetry install /module1bookstore/module1bookstore/pyproject.toml
