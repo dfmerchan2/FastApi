@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.9"]
+        python-version: ["3.11"]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,12 +22,6 @@ jobs:
      
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-
-      - name: Crear entorno virtual
-        run: python${{ matrix.python-version }} -m venv ./.venv
-
-      - name: Activar entorno virtual
-        run: source ./.venv/bin/activate
           
       - name: Instalar poetry
         run: pip install poetry
