@@ -28,9 +28,12 @@ jobs:
 
       - name: Solucion error
         run: poetry lock --no-update
+
+      - name: Print current directory
+        run: pwd
         
       - name: Instalar dependencias
-        run: poetry install
+        run: poetry install /module1bookstore/pyproject.toml
 
       - name: Run Tests (optional environment variables)
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
