@@ -28,6 +28,7 @@ jobs:
 
       - name: Activar entorno virtual
         run: source ./.venv/bin/activate
+        
       - name: Instalar poetry
         run: pip install poetry
 
@@ -35,7 +36,7 @@ jobs:
         run: poetry lock --no-update
         
       - name: Instalar dependencias
-        run: poetry install
+        run: poetry install --no-interaction --no-ansi --no-cache
 
       - name: Run Tests (optional environment variables)
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
