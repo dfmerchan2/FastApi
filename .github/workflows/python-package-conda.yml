@@ -14,6 +14,19 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Get current directory path V1
+        run: |
+          # Get the current working directory path
+          CURRENT_DIR=$(pwd)
+
+          # Print the current directory path
+          echo "Current Directory: $CURRENT_DIR"
+
+          # List folders in the current directory
+          ls -d */ | while read -r dir; do
+            echo "Folder: $dir"
+          done
+
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 
@@ -23,6 +36,19 @@ jobs:
       - name: Activar entorno virtual
         run: source ./.venv/bin/activate
 
+      - name: Get current directory path V2
+        run: |
+          # Get the current working directory path
+          CURRENT_DIR=$(pwd)
+
+          # Print the current directory path
+          echo "Current Directory: $CURRENT_DIR"
+
+          # List folders in the current directory
+          ls -d */ | while read -r dir; do
+            echo "Folder: $dir"
+          done
+          
       - name: Instalar poetry
         run: pip install poetry
 
