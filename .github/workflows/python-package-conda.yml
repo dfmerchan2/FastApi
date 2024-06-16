@@ -31,9 +31,20 @@ jobs:
 
       - name: Print current directory
         run: pwd
+
+      - name: List files using Python script
+        run: |
+          import os
+          import glob
+
+          current_dir = os.getcwd()
+          all_files = glob.glob(os.path.join(current_dir, '*'))
+
+          for file in all_files:
+            print(file)
         
       - name: Instalar dependencias
-        run: poetry install /module1bookstore/pyproject.toml
+        run: poetry install /module1bookstore/module1bookstore/pyproject.toml
 
       - name: Run Tests (optional environment variables)
         run: ENV=TESTING MODE_TEST=Unit pytest -m unit
