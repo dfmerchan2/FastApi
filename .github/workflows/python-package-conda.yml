@@ -28,9 +28,6 @@ jobs:
 
       - name: Solucion error
         run: poetry lock --no-update
-
-      - name: Solucion error
-        run: python -c "import orjson"
         
       - name: Instalar dependencias
         run: poetry install
